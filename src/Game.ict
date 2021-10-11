@@ -1,14 +1,28 @@
 ctjsVersion: 1.7.0
 notes: >-
-  // add UI
+  // add Ui
 
   ct.rooms.append('UI', {isUi: true});
 
-  // UI Buttons
+  // Ui (press) Buttons
 
   for(var event in ct.touch.events) {
       if(ct.touch.hovers(this, event.id, true)) {
-          console.log('touched')
+          console.log('hovered')
+          if(ct.actions.Press.released) {
+              console.log('pressed')
+          }
+      }
+  }
+
+  // Ui (hold) buttons
+
+  for(var event in ct.touch.events) {
+      if(ct.touch.hovers(this, event.id, true)) {
+          console.log('hovered')
+          if(ct.actions.Press.pressed) {
+              console.log('pressed')
+          }
       }
   }
 
@@ -139,6 +153,7 @@ textures:
     bottom: 64
     uid: 67664ff0-e28d-40d7-80f1-f539d913db81
     padding: 1
+    lastmod: 1633978541311
   - name: Icon
     untill: 0
     grid:
@@ -244,7 +259,10 @@ types:
     onstep: |-
       for(var event in ct.touch.events) {
           if(ct.touch.hovers(this, event.id, true)) {
-              console.log('touched')
+              console.log('hovered')
+              if(ct.actions.Press.released) {
+                  console.log('pressed')
+              }
           }
       }
     ondraw: ''
@@ -485,6 +503,9 @@ actions:
       - code: keyboard.KeyA
       - code: keyboard.ArrowLeft
       - code: gamepad.Right
+  - name: Press
+    methods:
+      - code: touch.Any
 emitterTandems: []
 scripts: []
 starting: 0
