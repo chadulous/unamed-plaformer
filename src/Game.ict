@@ -530,7 +530,7 @@ settings:
     linux: true
     mac: true
     functionWrap: false
-    codeModifier: obfuscate
+    codeModifier: minify
   branding:
     icon: 699180b2-dc88-44e7-be4e-d97e45ef7762
     accent: '#44DBD6'
