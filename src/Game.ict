@@ -241,7 +241,7 @@ types:
     texture: dffec1e8-a2a2-4359-9c27-9ae00ae865d1
     extends: {}
     uid: 81e11cad-8113-468a-b884-4fa638b20e8f
-    lastmod: 1633103815807
+    lastmod: 1634056408251
   - name: Grass
     depth: 0
     oncreate: ''
@@ -257,10 +257,9 @@ types:
     depth: 0
     oncreate: ''
     onstep: |-
-      for(var event in ct.touch.events) {
-          if(ct.touch.hovers(this, event.id, true)) {
-              console.log('hovered')
-              if(ct.actions.Press.released) {
+      for(let event in ct.touch.events) {
+          if(ct.actions.Press.released) {
+              if(ct.touch.hovers(this, event.id, true)) {
                   console.log('pressed')
               }
           }
